@@ -27,8 +27,8 @@ class _MyHomePageState extends State<MyHomePage> {
               fit: BoxFit.contain,
               height: 32,
             ),
-            SizedBox(width: 10),
-            Expanded(
+            const SizedBox(width: 10),
+            const Expanded(
                 child: Text(
               'TRƯỜNG THPT ĐOÀN THỊ ĐIỂM HÀ NỘI',
               overflow: TextOverflow.ellipsis,
@@ -37,48 +37,60 @@ class _MyHomePageState extends State<MyHomePage> {
             ))
           ],
         ),
-        actions: [
+        actions: const [
           nutbam(bt: Icons.notifications),
           nutbam(bt: IconData(0xe59c, fontFamily: 'MaterialIcons')),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.account_circle_outlined,
-              size: 40,
-              color: Colors.blue,
-            ),
-          ),
-          IconButton(
-              onPressed: () {},
-              icon: Icon(
-                IconData(0xe3dc, fontFamily: 'MaterialIcons'),
-                size: 40,
-                color: Colors.grey,
-              )),
+          nutbamdep(bt: Icons.account_circle_outlined,mau: Colors.blue),
+          nutbamdep(bt: IconData(0xe3dc, fontFamily: 'MaterialIcons'),mau: Colors.grey),
         ],
       ),
       body: ListView(
         children: [
-          anhmodau(),
-          chucnang(),
-          //SizedBox(height: 10),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
-            child: tenlop(),
+          const anhmodau(),
+          const Padding(
+            padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+            child: Column(
+              children: [
+                chucnang(),
+                tenlop(),
+              ],
+            ),
           ),
-          //SizedBox(height: 20),
+          const SizedBox(height: 20),
           Padding(
-            padding: const EdgeInsets.all(3.0),
+            padding: const EdgeInsets.fromLTRB(5, 5, 5, 15),
             child: Container(
-              //height: 1000,
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
-                  boxShadow: [BoxShadow(color: Colors.grey, blurRadius: 3)]),
+                  boxShadow: const [BoxShadow(color: Colors.grey, blurRadius: 3)]),
               child: quanlytientrinh(),
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class nutbamdep extends StatelessWidget {
+  const nutbamdep({
+    super.key,
+    required this.bt,
+    required this.mau,
+  });
+
+  final IconData bt;
+  final Color mau;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: () {},
+      icon: Icon(
+        bt,
+        size: 40,
+        color: mau,
       ),
     );
   }
