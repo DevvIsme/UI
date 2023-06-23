@@ -10,7 +10,7 @@ class tenlop extends StatelessWidget {
     var textStyle = TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
-                    fontSize: 20,
+                    fontSize: 18,
                   );
     return Row(
       mainAxisSize: MainAxisSize.min,
