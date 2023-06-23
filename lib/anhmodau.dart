@@ -10,14 +10,41 @@ class anhmodau extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
+    return Stack(
+      children: [
       anhnen(),
       Positioned(
         top: 150,
         left: 50,
         child: Lottie.asset('assets/bot-edu-2.json'),
       ),
-      text()
+       SizedBox(
+          height: 400,
+         child: Align(
+          alignment: Alignment.bottomCenter,
+           child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.blue.shade50.withOpacity(0.9),
+                ),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 10, 10, 10),
+                      child: Text(
+                        'NHIEM VU',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold
+                        ),
+                        ),
+                    ),
+                  ],
+                )
+                ),
+         ),
+       ),
+      text(),
+     
     ]);
   }
 }
@@ -69,7 +96,8 @@ class text extends StatelessWidget {
               title:
                   'Chao mung ban den voi he thong day hoc truc tuyen (vnEdu LMS) cua',
               size: 20),
-          titlegt(title: 'Truong THPT Doan Thi Diem', size: 25)
+          titlegt(title: 'Truong THPT Doan Thi Diem', size: 25),
+          
         ],
       ),
     );
