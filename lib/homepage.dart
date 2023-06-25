@@ -1,11 +1,14 @@
 // ignore_for_file: depend_on_referenced_packages
 
 import 'package:flutter/material.dart';
-import 'package:ui2/qltt.dart';
-import 'package:ui2/tenlop.dart';
+import 'package:ui2/appbar%20elements/nutbam.dart';
+import 'package:ui2/appbar%20elements/nutbamdep.dart';
+import 'package:ui2/homepage%20elements/qltt.dart';
+import 'package:ui2/homepage%20elements/tenlop.dart';
 
-import 'anhmodau.dart';
-import 'chucnang.dart';
+import 'homepage elements/anhmodau.dart';
+import 'homepage elements/chucnang.dart';
+import 'constants.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -33,14 +36,14 @@ class _MyHomePageState extends State<MyHomePage> {
               'TRƯỜNG THPT ĐOÀN THỊ ĐIỂM HÀ NỘI',
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: Mau.textsize),
             ))
           ],
         ),
-        actions: const [
-          nutbam(bt: Icons.notifications),
-          nutbam(bt: IconData(0xe59c, fontFamily: 'MaterialIcons')),
-          nutbamdep(bt: Icons.account_circle_outlined,mau: Colors.blue),
+        actions: <Widget> [
+          nutbam(anh: Image.asset('assets/ibell.png',fit: BoxFit.fill,height: 100,)),
+          nutbam(anh: Image.asset('assets/icart.png',fit: BoxFit.fill,height: 100,),),
+          nutbamdep(bt: Icons.account_circle_outlined,mau: Color(0xFF005FD0)),
           nutbamdep(bt: IconData(0xe3dc, fontFamily: 'MaterialIcons'),mau: Colors.grey),
         ],
       ),
@@ -75,52 +78,3 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class nutbamdep extends StatelessWidget {
-  const nutbamdep({
-    super.key,
-    required this.bt,
-    required this.mau,
-  });
-
-  final IconData bt;
-  final Color mau;
-
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () {},
-      icon: Icon(
-        bt,
-        size: 40,
-        color: mau,
-      ),
-    );
-  }
-}
-
-class nutbam extends StatelessWidget {
-  const nutbam({
-    super.key,
-    required this.bt,
-  });
-
-  final IconData bt;
-
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () {},
-      icon: Container(
-        decoration:
-            BoxDecoration(color: Colors.blue.shade100, shape: BoxShape.circle),
-        child: Padding(
-          padding: const EdgeInsets.all(7.0),
-          child: Icon(
-            bt,
-            color: Colors.blue,
-          ),
-        ),
-      ),
-    );
-  }
-}
